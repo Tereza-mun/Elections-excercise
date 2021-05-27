@@ -7,34 +7,42 @@ const App = () => {
   const [candidates, setCandidates] = useState([]);
   const [president, setPresident] = useState(null);
 
-  useEffect(() => setCandidates([
-    { name: "Ferdinand Mravenec", avatar: '/assets/candidate01.png' },
-    { name: "Markéta Smetana", avatar: '/assets/candidate02.png' },
-    { name: "Beáta Skočdopolová", avatar: '/assets/candidate03.png' },
-    { name: "Lubomír Poňuchálek", avatar: '/assets/candidate04.png' },
-  ]), []);
-  
+  useEffect(
+    () =>
+      setCandidates([
+        { name: 'Ferdinand Mravenec', avatar: '/assets/candidate01.png' },
+        { name: 'Markéta Smetana', avatar: '/assets/candidate02.png' },
+        { name: 'Beáta Skočdopolová', avatar: '/assets/candidate03.png' },
+        { name: 'Lubomír Poňuchálek', avatar: '/assets/candidate04.png' },
+      ]),
+    [],
+  );
+  const handleVoting = (name) => {
+    setPresident(name);
+  };
+
   return (
     <div className="container">
       <div className="castle">
         <div className="castle__image"></div>
         <div className="castle__body">
-          <h1>Nový prezident</h1>
+          <h1>New president</h1>
           <p className="castle__president">
-            {
-              president === null ? 'Vyberte svého kandidáta' : president
-            }
+            {president === null
+              ? 'Please select your candidate'
+              : 'Thank you for voting!'}
           </p>
         </div>
       </div>
-      
-      <h2>Kandidátí</h2>
+
+      <h2>Candidates</h2>
       <div className="candidate-list">
         {candidates.map((c) => (
-          <Candidate 
+          <Candidate
             key={c.name}
-            name={c.name} 
-            avatar={c.avatar} 
+            name={c.name}
+            avatar={c.avatar}
+            voted={handleVoting}
           />
         ))}
       </div>
