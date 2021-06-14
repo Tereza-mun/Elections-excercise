@@ -1,9 +1,9 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import "./style.css";
 
 const Candidate = (props) => {
   const handleClick = () => {
-    props.voted();
+    props.voted(props.name);
   };
 
   return (

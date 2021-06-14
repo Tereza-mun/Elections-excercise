@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { render } from 'react-dom';
-import Candidate from './Candidate/index';
-import './style.css';
+import React, { useState, useEffect } from "react";
+import { render } from "react-dom";
+import Candidate from "./Candidate/index";
+import "./style.css";
 
 const App = () => {
   const [candidates, setCandidates] = useState([]);
@@ -10,10 +10,10 @@ const App = () => {
   useEffect(
     () =>
       setCandidates([
-        { name: 'Ferdinand Mravenec', avatar: '/assets/candidate01.png' },
-        { name: 'Markéta Smetana', avatar: '/assets/candidate02.png' },
-        { name: 'Beáta Skočdopolová', avatar: '/assets/candidate03.png' },
-        { name: 'Lubomír Poňuchálek', avatar: '/assets/candidate04.png' },
+        { name: "Ferdinand Mravenec", avatar: "/assets/candidate01.png" },
+        { name: "Markéta Smetana", avatar: "/assets/candidate02.png" },
+        { name: "Beáta Skočdopolová", avatar: "/assets/candidate03.png" },
+        { name: "Lubomír Poňuchálek", avatar: "/assets/candidate04.png" },
       ]),
     [],
   );
@@ -29,8 +29,8 @@ const App = () => {
           <h1>New president</h1>
           <p className="castle__president">
             {president === null
-              ? 'Please select your candidate'
-              : 'Thank you for voting!'}
+              ? "Please select your candidate"
+              : `You have voted for ${president}`}
           </p>
         </div>
       </div>
@@ -50,4 +50,4 @@ const App = () => {
   );
 };
 
-render(<App />, document.querySelector('#app'));
+render(<App />, document.querySelector("#app"));
